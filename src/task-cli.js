@@ -34,4 +34,7 @@ switch (command) {
   case "mark-done":
     markTaskDone(args[1]);
     break;
+  default:
+    console.log("Invalid command, view the README for a list of valid commands.");
+    break;
 }
