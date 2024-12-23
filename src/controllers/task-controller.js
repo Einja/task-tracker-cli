@@ -53,6 +53,29 @@ function deleteTask(id) {
   writeTasks(updatedTasks);
 }
 
-function listTasks(filter) {}
+function markTaskWip(id) {
+  const tasks = readTasks();
+  const taskIndex = tasks.findIndex((task) => task.id === parseInt(id));
+  if (taskIndex === -1) {
+    throw new Error(`Task ${id} not found`);
+  }
+  tasks[taskIndex].markInProgress();
+  writeTasks(tasks);
+}
 
-module.exports = { addTask, updateTask, deleteTask };
+function markTaskDone(id) {
+  const tasks = readTasks();
+  const taskIndex = tasks.findIndex((task) => task.id === parseInt(id));
+  if (taskIndex === -1) {
+    throw new Error(`Task ${id} not found`);
+  }
+  tasks[taskIndex].markDone();
+  writeTasks(tasks);
+}
+
+function listTasks(filter = null) {
+  const tasks = readTasks();
+  return filter ? tasks.filter((task) => task.status === filter) : tasks;
+}
+
+module.exports = { addTask, updateTask, deleteTask, listTasks, markTaskWip, markTaskDone};
