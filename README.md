@@ -1,5 +1,7 @@
 # Task Tracker CLI
 
+Project URL: https://roadmap.sh/projects/task-tracker
+
 # NOTE: I used node for the sake of getting familiar with the framework.
 
 How to use:
@@ -14,6 +16,7 @@ How to use:
 - User can view tasks based on inputted filters (list {done, todo, inprogress})
 
 Below are the list of commands to help you navigate this project:
+
 ```
 To add a task:
 node src/task-cli.js add <description>
